@@ -1,10 +1,10 @@
 import { BaseModule } from '..';
 import { MACStateProvider } from '../../providers/chain-state/mac/mac';
-import { BitcoinP2PWorker } from './p2p';
-import { VerificationPeer } from './VerificationPeer';
+import { BitcoinP2PWorker } from '../bitcoin/p2p';
+import { VerificationPeer } from '../bitcoin/VerificationPeer';
 
-export default class BitcoinModule extends BaseModule {
-  constructor(services: BaseModule['bitcoreServices']) {
+export default class MACModule extends BaseModule {
+  constructor(services) {
     super(services);
     services.Libs.register('MAC', 'bitcore-lib-mac', 'bitcore-p2p-mac');
     services.P2P.register('MAC', BitcoinP2PWorker);
