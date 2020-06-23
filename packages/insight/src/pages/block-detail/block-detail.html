@@ -23,7 +23,7 @@
           <ion-grid>
             <ion-row>
               <ion-col col-12 col-md class="allow-truncated-text">
-                <block-summary *ngIf="chainNetwork.chain === 'BTC' || chainNetwork.chain === 'BCH'" [block]="block" [chainNetwork]="chainNetwork"></block-summary>
+                <block-summary *ngIf="chainNetwork.chain === 'BTC' || chainNetwork.chain === 'BCH' || chainNetwork.chain === 'MAC'" [block]="block" [chainNetwork]="chainNetwork"></block-summary>
                 <block-summary-eth *ngIf="chainNetwork.chain === 'ETH'" [block]="block" [chainNetwork]="chainNetwork"></block-summary-eth>
                 <ion-item>
                   Number of Transactions
@@ -51,12 +51,12 @@
                     {{ block.time * 1000 | date:'long' }}
                   </ion-note>
                 </ion-item>
-          <!-- TODO      <ion-item>
+                <ion-item>
                   Mined by
                   <ion-note item-end *ngIf="block.poolInfo">
                     <a href="{{ block.poolInfo.url }}">{{ block.poolInfo.poolName }}</a>
                   </ion-note>
-                </ion-item> -->
+                </ion-item>
               </ion-col>
               <ion-col col-12 col-md class="allow-truncated-text">
                 <ion-item>

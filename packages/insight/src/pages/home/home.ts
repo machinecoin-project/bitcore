@@ -170,7 +170,44 @@ export class HomePage {
             }
           }
         }
-      }
+      },
+      mac: {
+        name: 'Machinecoin',
+        historicalRates: [],
+        dailyTransactionCounts: [],
+        currentPrice: 0,
+        averagePrice: 0,
+        lastNumberOfTransactionsConfirmed: 0,
+        backgroundColor: 'rgba(18,35,47,1)',
+        gradientBackgroundColor: 'rgba(69,99,246, 0.2)',
+        ticks: {
+          thirtyDayTicks: {
+            callback: value => {
+              return this.numberWithCommas(value);
+            },
+            yAxesTicks: {
+              maxTicksLimit: 10,
+              stepSize: 500,
+              callback: value => yValueCallback(value)
+            },
+            xAxesTicks: {
+              maxTicksLimit: 5,
+              stepSize: 5
+            }
+          },
+          sevenDayTicks: {
+            yAxesTicks: {
+              maxTicksLimit: 10,
+              stepSize: 500,
+              callback: value => yValueCallback(value)
+            },
+            xAxesTicks: {
+              maxTicksLimit: 7,
+              stepSize: 1
+            }
+          }
+        }
+      },
     };
   }
 
