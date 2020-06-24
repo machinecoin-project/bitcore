@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM node:dubnium
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
@@ -21,11 +21,11 @@ COPY ./packages/bitcore-node/package.json ./packages/bitcore-node/package.json
 COPY ./packages/insight/package.json ./packages/insight/package.json
 COPY ./packages/crypto-wallet-core/package.json ./packages/crypto-wallet-core/package.json
 
-RUN ./node_modules/.bin/lerna bootstrap
+RUN npm run bootstrap && npm run compile
 
 COPY . .
 EXPOSE 3000
 EXPOSE 8100
-CMD ["./node_modules/.bin/lerna", "run", "start"]
-#CMD ["npm", "--prefix=./packages/bitcore-node", "start"]
+#CMD ["./node_modules/.bin/lerna", "run", "start"]
+CMD ["npm", "--prefix=./packages/bitcore-node", "start"]
 #CMD ["npm", "--prefix=./packages/insight", "start"]
